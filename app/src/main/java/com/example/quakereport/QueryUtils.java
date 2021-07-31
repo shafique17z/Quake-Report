@@ -13,6 +13,8 @@ import java.util.Date;
 
 public final class QueryUtils {
 
+    static String url;
+
     /**
      * Sample JSON response for a USGS query
      */
@@ -61,7 +63,10 @@ public final class QueryUtils {
                 String place = properties.getString("place");
                 long time = properties.getLong("time");
 
-                Earthquake earthquake = new Earthquake(mag, place, time);
+                // Extract the value for the key called "url"
+                String url = properties.getString("url");
+
+                Earthquake earthquake = new Earthquake(mag, place, time, url);
                 earthquakes.add(earthquake);
 
             }
