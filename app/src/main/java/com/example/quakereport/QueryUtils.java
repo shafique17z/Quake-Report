@@ -6,6 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -55,8 +56,8 @@ public final class QueryUtils {
 
                 JSONObject currentEarthquake = featuresArray.getJSONObject(i);
                 JSONObject properties = currentEarthquake.getJSONObject("properties");
+                double mag = properties.getDouble("mag");
 
-                String mag = properties.getString("mag");
                 String place = properties.getString("place");
                 long time = properties.getLong("time");
 
